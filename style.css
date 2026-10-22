@@ -1,15 +1,9 @@
-/* ============================================
-   Portfolio Stylesheet - Akash Amalan
-   ============================================ */
-
-/* ---- 1. Reset ---- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---- 2. Colours kept in one place ---- */
 :root {
   --bg: #fbfbfd;
   --card: #ffffff;
@@ -20,7 +14,6 @@
   --nav: rgba(251, 251, 253, 0.75);
 }
 
-/* if the device is set to dark mode, use these colours instead */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
@@ -33,10 +26,8 @@
   }
 }
 
-/* ---- 3. Page basics ---- */
 body {
-  /* system-ui uses the device's own font, like Apple does */
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   font-size: 17px;
@@ -46,25 +37,21 @@ body {
 
 html {
   scroll-behavior: smooth;
-  /* stops the sticky nav from covering a section when you jump to it */
-  scroll-padding-top: 70px;
+    scroll-padding-top: 70px;
 }
 
-/* the content is wide (1100px) and centred on the screen */
 main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* ---- 4. Navigation bar ---- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 10;
 
-  /* see through, the page blurs behind it while scrolling */
-  background-color: var(--nav);
+    background-color: var(--nav);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--line);
 }
@@ -113,7 +100,6 @@ main {
   cursor: pointer;
 }
 
-/* ---- 5. Intro (text on the left, photo on the right) ---- */
 .intro {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -132,8 +118,7 @@ main {
 h1 {
   font-size: 64px;
   line-height: 1.05;
-  /* big text looks better slightly tighter */
-  letter-spacing: -2px;
+    letter-spacing: -2px;
   margin-bottom: 14px;
 }
 
@@ -150,7 +135,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* buttons under the intro */
 .intro-buttons {
   display: flex;
   gap: 12px;
@@ -169,7 +153,6 @@ h1 {
   opacity: 0.85;
 }
 
-/* the button sinks slightly while it is being pressed */
 .pill:active {
   transform: scale(0.97);
 }
@@ -185,7 +168,6 @@ h1 {
   background-color: var(--card);
 }
 
-/* photo box: a rounded square. the letters sit behind the photo */
 .photo-box {
   position: relative;
   width: 100%;
@@ -218,13 +200,11 @@ h1 {
   object-fit: cover;
 }
 
-/* ---- 6. Sections (label on the left, content on the right) ---- */
 section {
   padding: 60px 0;
   border-top: 1px solid var(--line);
 }
 
-/* the intro does not need the line above it */
 .intro {
   border-top: none;
 }
@@ -253,13 +233,11 @@ p {
   max-width: 640px;
 }
 
-/* ---- 7. Cards (used for skills and projects) ---- */
 .card-grid {
   display: grid;
   gap: 16px;
 }
 
-/* skills: 3 columns, projects: 2 columns */
 .three {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -274,8 +252,7 @@ p {
   border-radius: 16px;
   padding: 22px 24px;
 
-  /* the lift is animated instead of jumping */
-  transition: transform 0.25s, box-shadow 0.25s;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
@@ -295,7 +272,6 @@ p {
   margin-bottom: 0;
 }
 
-/* ---- 8. Contact (form on the left, accounts on the right) ---- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -353,13 +329,11 @@ textarea:focus {
   margin: 0;
 }
 
-/* ---- 9. My accounts ---- */
 .accounts {
   border-top: 1px solid var(--line);
   align-self: start;
 }
 
-/* each account is one clickable row */
 .account {
   display: flex;
   justify-content: space-between;
@@ -390,7 +364,6 @@ textarea:focus {
   color: var(--grey);
 }
 
-/* ---- 10. Footer ---- */
 footer {
   max-width: 1100px;
   margin: 0 auto;
@@ -400,7 +373,6 @@ footer {
   border-top: 1px solid var(--line);
 }
 
-/* ---- 11. Fade in when scrolled to (JavaScript adds .visible) ---- */
 .fade {
   opacity: 0;
   transform: translateY(16px);
@@ -412,7 +384,6 @@ footer {
   transform: translateY(0);
 }
 
-/* ---- 12. Tablet and phone screens ---- */
 @media (max-width: 800px) {
 
   main,
@@ -422,8 +393,7 @@ footer {
     padding-right: 24px;
   }
 
-  /* everything becomes one column */
-  .intro,
+    .intro,
   section:not(.intro),
   .contact-grid {
     grid-template-columns: 1fr;
@@ -434,8 +404,7 @@ footer {
     padding: 50px 0;
   }
 
-  /* photo goes on top on small screens */
-  .photo-box {
+    .photo-box {
     order: -1;
     justify-self: start;
     max-width: 200px;
@@ -451,8 +420,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  /* the menu is hidden until the button is clicked */
-  .nav-links {
+    .nav-links {
     display: none;
     flex-direction: column;
     gap: 14px;
@@ -465,8 +433,7 @@ footer {
     padding: 16px 22px;
   }
 
-  /* JavaScript adds this class */
-  .nav-links.show {
+    .nav-links.show {
     display: flex;
   }
 
@@ -475,7 +442,6 @@ footer {
   }
 }
 
-/* ---- 13. If the user turned off animations on their device ---- */
 @media (prefers-reduced-motion: reduce) {
 
   html {

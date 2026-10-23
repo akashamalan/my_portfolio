@@ -174,10 +174,68 @@ h1 {
   max-width: 340px;
   aspect-ratio: 1 / 1;
   justify-self: end;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.photo-box.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
   border-radius: 36px;
   overflow: hidden;
   background-color: var(--card);
   border: 1px solid var(--line);
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.back p {
+  margin-bottom: 6px;
+}
+
+.back-hi {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.back-name {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.back-line {
+  font-size: 16px;
+}
+
+.back-tip {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 14px;
 }
 
 .initials {
@@ -375,8 +433,8 @@ footer {
 
 .fade {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s, transform 0.6s;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade.visible {
@@ -518,5 +576,98 @@ footer {
   .intro-text,
   .photo-box {
     animation: none;
+  }
+}
+.theme-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background-color: var(--card);
+  color: var(--text);
+  font-size: 17px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.theme-btn:active {
+  transform: scale(0.9);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+body.light {
+  --bg: #fbfbfd;
+  --card: #ffffff;
+  --text: #1d1d1f;
+  --grey: #6e6e73;
+  --line: #e6e6e9;
+  --blue: #0071e3;
+  --nav: rgba(251, 251, 253, 0.75);
+}
+
+body.dark {
+  --bg: #000000;
+  --card: #1c1c1e;
+  --text: #f5f5f7;
+  --grey: #98989d;
+  --line: #2c2c2e;
+  --blue: #0a84ff;
+  --nav: rgba(0, 0, 0, 0.7);
+}
+
+body,
+.navbar,
+input,
+textarea {
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+.card {
+  transition: transform 0.25s, box-shadow 0.25s, background-color 0.5s, border-color 0.5s;
+}
+
+h1 .typing {
+  display: inline;
+}
+
+.mail-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--grey);
+}
+
+.mail-chip {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 5px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background-color: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.mail-chip:hover {
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+}
+
+.mail-chip:active {
+  transform: scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .flip-inner {
+    transition: none;
   }
 }

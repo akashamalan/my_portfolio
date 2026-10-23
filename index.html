@@ -23,7 +23,10 @@
         </ul>
       </nav>
 
-            <button class="menu-btn" id="menuBtn">Menu</button>
+            <div class="nav-right">
+        <button class="theme-btn" id="themeBtn">&#9790;</button>
+        <button class="menu-btn" id="menuBtn">Menu</button>
+      </div>
     </div>
   </header>
 
@@ -33,7 +36,7 @@
 
             <div class="intro-text">
         <p class="small-label">Welcome to my portfolio</p>
-        <h1>Hi, I'm Akash Amalan</h1>
+        <h1>Hi, I'm <span id="nameText">Akash Amalan</span></h1>
         <p class="role">B.Sc. Computer Science Student</p>
         <p class="lead">
           I study at KG College of Arts and Science, Coimbatore. I build small
@@ -46,9 +49,23 @@
         </div>
       </div>
 
-            <div class="photo-box">
-        <span class="initials">AA</span>
-        <img src="images/me.jpg" alt="Akash Amalan" onerror="this.style.display='none'">
+            <div class="photo-box" id="photoBox">
+        <div class="flip-inner">
+
+          <div class="face front">
+            <span class="initials">AA</span>
+            <img src="images/me.jpg" alt="Akash Amalan" onerror="this.style.display='none'">
+          </div>
+
+          <div class="face back">
+            <p class="back-hi">Hello!</p>
+            <p class="back-name">Akash Amalan</p>
+            <p class="back-line">Python and AI developer</p>
+            <p class="back-line">KG College, Coimbatore</p>
+            <p class="back-tip">click to flip back</p>
+          </div>
+
+        </div>
       </div>
 
     </section>
@@ -128,6 +145,12 @@
                 <form id="contactForm">
           <input type="text" id="name" placeholder="Name">
           <input type="text" id="email" placeholder="Email">
+          <div class="mail-options">
+            <span>Use:</span>
+            <button type="button" class="mail-chip" data-domain="gmail.com">Gmail</button>
+            <button type="button" class="mail-chip" data-domain="icloud.com">iCloud</button>
+            <button type="button" class="mail-chip" data-domain="outlook.com">Outlook</button>
+          </div>
           <textarea id="message" rows="5" placeholder="Message"></textarea>
           <button type="submit" class="send-btn">Send</button>
                     <p id="formMsg"></p>

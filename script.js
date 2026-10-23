@@ -35,15 +35,6 @@ form.addEventListener("submit", function (event) {
     return;
   }
 
-  var saved = JSON.parse(localStorage.getItem("messages")) || [];
-  saved.push({
-    name: name,
-    email: email,
-    message: message,
-    time: new Date().toLocaleString()
-  });
-  localStorage.setItem("messages", JSON.stringify(saved));
-
   formMsg.textContent = "Thank you, your message has been received.";
   formMsg.style.color = "#1a7f4b";
   form.reset();
@@ -69,3 +60,34 @@ var watcher = new IntersectionObserver(function (entries) {
 for (var w = 0; w < sections.length; w++) {
   watcher.observe(sections[w]);
 }
+
+var role = document.querySelector(".role");
+var fullText = role.textContent;
+var letter = 0;
+
+role.style.minHeight = role.offsetHeight + "px";
+role.textContent = "";
+role.classList.add("typing");
+
+var timer = setInterval(function () {
+  letter = letter + 1;
+  role.textContent = fullText.slice(0, letter);
+
+  if (letter === fullText.length) {
+    clearInterval(timer);
+    setTimeout(function () {
+      role.classList.remove("typing");
+    }, 1500);
+  }
+}, 70);
+
+var bar = document.createElement("div");
+bar.id = "progressBar";
+document.body.appendChild(bar);
+
+window.addEventListener("scroll", function () {
+  var scrolled = window.scrollY;
+  var total = document.documentElement.scrollHeight - window.innerHeight;
+
+  bar.style.width = (scrolled / total) * 100 + "%";
+});

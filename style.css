@@ -457,3 +457,66 @@ footer {
     transform: none;
   }
 }
+
+.intro-text,
+.photo-box {
+  animation: slideUp 0.8s ease both;
+}
+
+.photo-box {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.photo-box img {
+  transition: transform 0.5s;
+}
+
+.photo-box:hover img {
+  transform: scale(1.06);
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: var(--blue);
+  transition: width 0.25s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+.pill:hover,
+.send-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .intro-text,
+  .photo-box {
+    animation: none;
+  }
+}
